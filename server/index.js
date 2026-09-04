@@ -6,4 +6,10 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.static(path.join(__dirname, "..", "client", "dist")))
 
-app.listen(PORT, () => console.log(`http://localhost:${PORT}`));
+// Only listen when run directly (node server/index.js). Vercel imports this
+// module as a serverless function, where opening a port would never run.
+if (require.main === module) {
+  app.listen(PORT, () => console.log(`http://localhost:${PORT}`));
+}
+
+module.exports = app;
