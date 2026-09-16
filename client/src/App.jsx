@@ -7,6 +7,8 @@ import HomePage from './views/home/HomePage.jsx';
 import MainAuthView from './views/authentication/MainAuthView.jsx';
 import AboutPage from './views/about/AboutPage.jsx';
 import NavBar from './shared/navigation/NavBar.jsx';
+import Settings from './views/settings/UserSettingsPage.jsx';
+
 function App(){
 
     return(
@@ -16,6 +18,7 @@ function App(){
             <Route path='/' element={<HomePage/>}/>
             <Route path='/login' element={<MainAuthView/>}/>
             <Route path='/about' element={<AboutPage/>}/>
+            <Route path='/settings' element={<Settings/>}/>
 
             <Route path="*" element={<Navigate to='/' replace/>}/>
 

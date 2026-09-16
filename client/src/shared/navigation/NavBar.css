@@ -1,0 +1,68 @@
+nav{
+    display: flex;
+    flex-direction: row;
+    margin-left: 2rem;
+    background-color: var(--aka-darkgrey);
+    border-radius: .2rem;
+    padding: 0 .4rem;
+    color: var(--aka-ink-light);
+    align-items: center;
+    text-align: center;
+    /*Splits the navbar into 2 sections sending the auth part to the far right*/
+    justify-content: space-between;
+    /*Need margin for the image*/
+    margin-top: 2rem;
+}
+.nav-left{
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+}
+.nav-logo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+    
+}
+/*Placeholder image*/
+.nav-logo-img{
+    background-color: gray;
+    border-radius: 50%;
+    border: 2px solid black;
+    min-width: 100px;
+    min-height: 100px;
+    position: absolute;
+    z-index: 1000;
+}
+.nav-name{
+    color: var(--aka-ink-light);
+    margin-left: 7rem;
+}
+.nav-menu-btn{
+    display: flex;
+    flex-direction: row;
+    gap: .5rem;
+    align-items: center;
+}
+
+.nav-menu-toggle{
+    all: unset;
+    cursor: pointer;
+    color: var(--aka-orange);
+}
+.nav-searchbar{
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+}
+.nav-searchbar input{
+    border-radius: .5rem;
+    width: 40rem;
+    padding: .5rem;
+}
+.nav-auth a{
+    
+    color: var(--aka-ink-light);
+    text-decoration: none;
+}
