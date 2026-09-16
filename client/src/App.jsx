@@ -1,7 +1,7 @@
 //Services
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import React, {useState, useEffect} from 'react';
-import { Analytics } from "@vercel/analytics/react"
+// import { Analytics } from "@vercel/analytics/react"
 //Views
 import HomePage from './views/home/HomePage';
 import MainAuthView from './views/authentication/MainAuthView';
@@ -18,8 +18,8 @@ function App(){
             <Route path='/about' element={AboutPage}/>
 
         </Routes>
-        {/* Vercel analitics */}
-        <Analytics/>
+        {/* Vercel analitics
+        <Analytics/> */}
         </BrowserRouter>
     )
 }
