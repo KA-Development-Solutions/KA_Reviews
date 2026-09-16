@@ -4,4 +4,4 @@ function Stub(){
     )
 }
 
-export default Stub();
+export default Stub;
