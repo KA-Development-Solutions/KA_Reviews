@@ -1,7 +1,9 @@
 nav{
     display: flex;
     flex-direction: row;
-    margin-left: 2rem;
+    /*Need margin on top for image*/
+    margin: 2rem .75rem;
+    height: 3rem;
     background-color: var(--aka-darkgrey);
     border-radius: .2rem;
     padding: 0 .4rem;
@@ -10,40 +12,48 @@ nav{
     text-align: center;
     /*Splits the navbar into 2 sections sending the auth part to the far right*/
     justify-content: space-between;
-    /*Need margin for the image*/
-    margin-top: 2rem;
+
 }
 .nav-left{
     display: flex;
     flex-direction: row;
+    align-items: center;
     gap: 3rem;
+    min-width: 0;
+    flex: 1 1 auto;
 }
 .nav-logo{
     display: flex;
     flex-direction: row;
     align-items: center;
+    gap: .5rem;
     text-decoration: none;
-    
+    flex-shrink: 0;
 }
-/*Placeholder image*/
+/*Placeholder image taller than the 3rem bar so it spills out of it*/
 .nav-logo-img{
     background-color: gray;
     border-radius: 50%;
     border: 2px solid black;
-    min-width: 100px;
-    min-height: 100px;
-    position: absolute;
-    z-index: 1000;
+    width: 5rem;
+    height: 5rem;
+    /*Keeps the circle round while it overflows instead of being squashed to bar height*/
+    flex-shrink: 0;
 }
 .nav-name{
     color: var(--aka-ink-light);
-    margin-left: 7rem;
+    margin: 0;
 }
 .nav-menu-btn{
     display: flex;
     flex-direction: row;
     gap: .5rem;
     align-items: center;
+    flex-shrink: 0;
+}
+.nav-menu-btn h3{
+    margin: 0;
+    white-space: nowrap;
 }
 
 .nav-menu-toggle{
@@ -55,14 +65,44 @@ nav{
     display: flex;
     align-items: center;
     gap: .4rem;
+    /*This is the only part allowed to give up space as the screen narrows*/
+    flex: 1 1 auto;
+    min-width: 0;
 }
 .nav-searchbar input{
     border-radius: .5rem;
-    width: 40rem;
+    margin-inline: auto;
+    width: 100%;
+    /*Inputs refuse to shrink past their default size without this*/
+    min-width: 0;
+    max-width: 40rem;
     padding: .5rem;
 }
+.nav-right{
+    flex-shrink: 0;
+}
 .nav-auth a{
-    
+
     color: var(--aka-ink-light);
     text-decoration: none;
+    white-space: nowrap;
+}
+
+@media screen and (max-width: 900px) {
+    .nav-left{
+        gap: 1rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .nav-left{
+        gap: .5rem;
+    }
+    .nav-logo-img{
+        width: 3.5rem;
+        height: 3.5rem;
+    }
+    .nav-menu-btn h3{
+        display: none;
+    }
 }
