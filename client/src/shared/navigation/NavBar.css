@@ -87,13 +87,13 @@ nav{
     text-decoration: none;
     white-space: nowrap;
 }
-
+/*Tablets*/
 @media screen and (max-width: 900px) {
     .nav-left{
         gap: 1rem;
     }
 }
-
+/*Phones*/
 @media screen and (max-width: 576px) {
     .nav-left{
         gap: .5rem;
