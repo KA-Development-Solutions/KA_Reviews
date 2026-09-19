@@ -8,6 +8,7 @@ import MainAuthView from './views/authentication/MainAuthView.jsx';
 import AboutPage from './views/about/AboutPage.jsx';
 import NavBar from './shared/navigation/NavBar.jsx';
 import Settings from './views/settings/UserSettingsPage.jsx';
+import Footer from './shared/footer/Footer.jsx';
 
 function App(){
 
@@ -23,6 +24,7 @@ function App(){
             <Route path="*" element={<Navigate to='/' replace/>}/>
 
         </Routes>
+        <Footer/>
         {/* Vercel analitics
         <Analytics/> */}
         </BrowserRouter>

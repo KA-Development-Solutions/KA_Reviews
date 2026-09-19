@@ -1,0 +1,155 @@
+/* Shared section panel - orange outline with the heading sitting on the top border */
+.sec-panel{
+    position: relative;
+    border: 2px solid var(--aka-orange);
+    border-radius: .5rem;
+    background-color: #F4F4F4;
+    padding: 2.5rem 1.5rem 1.5rem;
+    margin-block: 3rem;
+}
+.sec-panel > h1{
+    /*Pulled up onto the border, its own background hiding the line behind it*/
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    padding-inline: 1rem;
+    background-color: #F4F4F4;
+    color: var(--aka-ink-muted);
+    font-size: 2rem;
+    white-space: nowrap;
+}
+/* Sec Recent Reviews */
+.reviews-carousel{
+    position: relative;
+}
+.reviews-track{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    overflow-x: auto;
+    /*Cards come to rest with their left edge against the track edge*/
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: .25rem;
+    padding-bottom: .5rem;
+    /*Arrows and swiping drive the scrolling, so the bar itself is hidden*/
+    scrollbar-width: none;
+}
+.reviews-track::-webkit-scrollbar{
+    display: none;
+}
+.reviews-arrow-btn{
+    all: unset;
+    cursor: pointer;
+    /*Floats over the panel edge, centred against the cards*/
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    width: 2.75rem;
+    height: 2.75rem;
+    display: grid;
+    place-items: center;
+    border: 1px solid #D0D0D0;
+    border-radius: 50%;
+    color: var(--aka-ink-dark);
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .15);
+}
+.reviews-arrow-next{
+    right: -2.75rem;
+    transform: translateY(-50%);
+}
+.reviews-arrow-prev{
+    left: -2.75rem;
+    /*Reuses the same glyph, flipped, instead of a second icon*/
+    transform: translateY(-50%) scaleX(-1);
+}
+.reviews-arrow-btn:disabled{
+    cursor: default;
+    opacity: .3;
+}
+/* Review Card Tall */
+.reviewcard-tall{
+    /*No grow, no shrink - each card keeps its width and the row scrolls instead*/
+    flex: 0 0 13rem;
+    scroll-snap-align: start;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    padding: .5rem;
+    border-radius: .5rem;
+    background-color: var(--aka-teal);
+}
+.reviewcard-tall img{
+    width: 100%;
+    /*Matches Steam's 600x900 box art, so portrait covers are shown whole*/
+    height: auto;
+    aspect-ratio: 2 / 3;
+    /*Crops the cover to fill the box rather than squashing it*/
+    object-fit: cover;
+    border-radius: .4rem;
+    display: block;
+}
+.reviewcard-info{
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+    padding: .6rem;
+    border-radius: .4rem;
+    background-color: #FFFFFF;
+}
+.reviewcard-review{
+    display: flex;
+    align-items: center;
+    gap: .3rem;
+    color: var(--aka-orange);
+}
+.reviewcard-review p{
+    margin: 0;
+    font-weight: 700;
+    color: var(--aka-ink-dark);
+}
+.reviewcard-name{
+    margin: 0;
+    font-size: .95rem;
+    color: var(--aka-ink-dark);
+}
+.reviewcard-type{
+    margin: 0;
+    font-size: .8rem;
+    color: var(--aka-ink-muted);
+}
+.reviewcard-btn{
+    all: unset;
+    cursor: pointer;
+    text-align: center;
+    padding: .2rem;
+    margin-top: .2rem;
+    border-radius: .25rem;
+    font-size: .8rem;
+    font-weight: 700;
+    color: var(--aka-ink-light);
+    background-color: var(--aka-orange);
+}
+/*Phones - arrows move inside the panel so they cannot push past the viewport*/
+@media screen and (max-width: 576px) {
+    .sec-panel{
+        padding-inline: .75rem;
+    }
+    .sec-panel > h1{
+        font-size: 1.5rem;
+    }
+    .reviews-arrow-next{
+        right: -.5rem;
+    }
+    .reviews-arrow-prev{
+        left: -.5rem;
+    }
+}
+/* Sec Recent News */
+
+/* Sec Upcoming */
+
+/* Sec Deals */

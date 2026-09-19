@@ -1,9 +1,14 @@
 const express = require("express");
-const path = require("path");
+const Env = require("./config/Env");
+const ApiLimiter = require("./middleware/RateLimiter");
+const GamesRoutes = require("./routes/GamesRoutes");
 
 const app = express();
-const PORT = process.env.PORT || 3000;
 
-app.use(express.static(path.join(__dirname, "..", "client", "dist")))
+/*Every /api route is rate limited before it reaches a handler*/
+app.use("/api", ApiLimiter);
+app.use("/api/games", GamesRoutes);
 
-app.listen(PORT, () => console.log(`http://localhost:${PORT}`));
+app.use(express.static(Env.ClientDist));
+
+app.listen(Env.Port, () => console.log(`http://localhost:${Env.Port}`));
